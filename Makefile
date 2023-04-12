@@ -24,13 +24,15 @@ OBJS    =	${SRCS:.c=.o}
 
 CFLAGS    =    -Wall -Wextra -Werror -g
 
+CC	= 	cc
+
 all:	${NAME}
 
 .c.o:	${INC}
-	cc ${CFLAGS} -fPIC -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	libft/libft.a ${OBJS}
-	gcc ${OBJS} ${CFLAGS} -Llibft -lft -o ${NAME} 
+	${CC} ${OBJS} ${CFLAGS} -Llibft -lft -o ${NAME} 
 
 clean:
 	rm -f ${OBJS}

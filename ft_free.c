@@ -20,7 +20,7 @@ void	ft_free_all(t_pipex *pipex, int who)
 	if (who == 0)
 	{
 		close (pipex->infile);
-		close(pipex->outfil);
+		close(pipex->outfile);
 		while (pipex->path[i])
 		{
 			free(pipex->path[i]);

@@ -6,7 +6,7 @@
 /*   By: eaubry <eaubry@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:15:07 by weaz              #+#    #+#             */
-/*   Updated: 2023/04/11 16:34:56 by eaubry           ###   ########.fr       */
+/*   Updated: 2023/04/12 18:05:42 by eaubry           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <sys/uio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include <sys/wait.h>
 # include <string.h>
 # include "libft/libft.h"
@@ -28,7 +29,7 @@ typedef struct s_pipex
 	pid_t	pid2;
 	int		pip[2];
 	int		infile;
-	int		outfil;
+	int		outfile;
 	char	*cmd;
 	char	**path;
 	char	**args;
@@ -42,7 +43,9 @@ void	ft_first_cmd(t_pipex pipex, char **av, char **envp);
 
 void	ft_scnd_cmd(t_pipex pipex, char **av, char **envp);
 
-void	ft_exit_msg(char *msg);
+void	ft_exit_msg(t_pipex *pipex, char *msg);
+
+void	ft_exit(char *msg);
 
 void	ft_free_args(char **args);
 
